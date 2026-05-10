@@ -1,219 +1,746 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hola Mundo Multilenguaje</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola Mundo en 20 Idiomas</title>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+    <!-- Google Fonts: Inter para un look moderno y profesional -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap" rel="stylesheet">
 
-    body{
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: white;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 30px;
-    }
+    <style>
+        /* ============ RESET Y VARIABLES ============ */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    .container{
-      width: 100%;
-      max-width: 1200px;
-      text-align: center;
-    }
+        :root {
+            --color-bg: #f7f9fc;
+            --color-surface: #ffffff;
+            --color-text-primary: #1a1d28;
+            --color-text-secondary: #5a5f72;
+            --color-text-tertiary: #8b8fa3;
+            --color-accent: #4f6ef7;
+            --color-accent-soft: #eef1ff;
+            --color-accent-hover: #3b54d4;
+            --color-border: #e8ecf2;
+            --color-border-hover: #c8d2e0;
+            --color-shadow-sm: 0 1px 2px rgba(26, 29, 40, 0.04);
+            --color-shadow-md: 0 4px 16px rgba(26, 29, 40, 0.06), 0 1px 3px rgba(26, 29, 40, 0.04);
+            --color-shadow-lg: 0 12px 32px rgba(26, 29, 40, 0.1), 0 2px 6px rgba(26, 29, 40, 0.05);
+            --color-shadow-xl: 0 20px 48px rgba(26, 29, 40, 0.14), 0 4px 12px rgba(26, 29, 40, 0.06);
+            --radius-sm: 10px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --max-width: 1280px;
+        }
 
-    .title{
-      margin-bottom: 15px;
-      font-size: clamp(2rem, 5vw, 4rem);
-      font-weight: 700;
-      letter-spacing: 2px;
-    }
+        /* ============ BASE ============ */
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
-    .subtitle{
-      color: #cbd5e1;
-      margin-bottom: 40px;
-      font-size: 1rem;
-    }
+        body {
+            font-family: var(--font-family);
+            background-color: var(--color-bg);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image:
+                radial-gradient(ellipse at 15% 10%, rgba(79, 110, 247, 0.04) 0%, transparent 60%),
+                radial-gradient(ellipse at 85% 90%, rgba(79, 110, 247, 0.03) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 50%, rgba(120, 140, 220, 0.02) 0%, transparent 70%);
+            background-attachment: fixed;
+        }
 
-    .grid{
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
+        /* ============ HEADER ============ */
+        .header {
+            text-align: center;
+            padding: 3.5rem 1.5rem 2rem;
+            position: relative;
+        }
 
-    .card{
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 18px;
-      padding: 25px 20px;
-      backdrop-filter: blur(10px);
-      transition: 0.3s ease;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    }
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--color-accent);
+            border-radius: 10px;
+            opacity: 0.7;
+        }
 
-    .card:hover{
-      transform: translateY(-6px);
-      background: rgba(255,255,255,0.12);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-    }
+        .header__icon {
+            display: inline-block;
+            font-size: 2.8rem;
+            margin-bottom: 0.75rem;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 4px 8px rgba(79, 110, 247, 0.2));
+        }
 
-    .language{
-      font-size: 0.95rem;
-      color: #94a3b8;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
 
-    .hello{
-      font-size: 1.4rem;
-      font-weight: 600;
-      word-break: break-word;
-    }
+        .header__title {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: var(--color-text-primary);
+            margin-bottom: 0.4rem;
+            line-height: 1.2;
+        }
 
-    footer{
-      margin-top: 40px;
-      color: #94a3b8;
-      font-size: 0.9rem;
-    }
+        .header__title .accent {
+            color: var(--color-accent);
+            position: relative;
+        }
 
-    @media (max-width: 480px){
-      .card{
-        padding: 20px 15px;
-      }
+        .header__subtitle {
+            font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+            font-weight: 400;
+            color: var(--color-text-secondary);
+            letter-spacing: -0.01em;
+        }
 
-      .hello{
-        font-size: 1.2rem;
-      }
-    }
-  </style>
+        /* ============ MAIN GRID ============ */
+        .main-container {
+            flex: 1;
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 1.5rem 1.25rem 3rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            list-style: none;
+        }
+
+        /* ============ TARJETA (CARD) ============ */
+        .card {
+            background: var(--color-surface);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+            padding: 1.4rem 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: default;
+            transition:
+                transform var(--transition-smooth),
+                box-shadow var(--transition-smooth),
+                border-color var(--transition-smooth),
+                background var(--transition-fast);
+            position: relative;
+            overflow: hidden;
+            animation: cardEntrance 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        /* Animación de entrada escalonada */
+        @keyframes cardEntrance {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Retrasos para cada tarjeta (hasta 20) */
+        .card:nth-child(1) {
+            animation-delay: 0.03s;
+        }
+        .card:nth-child(2) {
+            animation-delay: 0.06s;
+        }
+        .card:nth-child(3) {
+            animation-delay: 0.09s;
+        }
+        .card:nth-child(4) {
+            animation-delay: 0.12s;
+        }
+        .card:nth-child(5) {
+            animation-delay: 0.15s;
+        }
+        .card:nth-child(6) {
+            animation-delay: 0.18s;
+        }
+        .card:nth-child(7) {
+            animation-delay: 0.21s;
+        }
+        .card:nth-child(8) {
+            animation-delay: 0.24s;
+        }
+        .card:nth-child(9) {
+            animation-delay: 0.27s;
+        }
+        .card:nth-child(10) {
+            animation-delay: 0.30s;
+        }
+        .card:nth-child(11) {
+            animation-delay: 0.33s;
+        }
+        .card:nth-child(12) {
+            animation-delay: 0.36s;
+        }
+        .card:nth-child(13) {
+            animation-delay: 0.39s;
+        }
+        .card:nth-child(14) {
+            animation-delay: 0.42s;
+        }
+        .card:nth-child(15) {
+            animation-delay: 0.45s;
+        }
+        .card:nth-child(16) {
+            animation-delay: 0.48s;
+        }
+        .card:nth-child(17) {
+            animation-delay: 0.51s;
+        }
+        .card:nth-child(18) {
+            animation-delay: 0.54s;
+        }
+        .card:nth-child(19) {
+            animation-delay: 0.57s;
+        }
+        .card:nth-child(20) {
+            animation-delay: 0.60s;
+        }
+
+        /* Línea decorativa sutil en el borde izquierdo */
+        .card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 20%;
+            height: 60%;
+            width: 3px;
+            background: var(--color-accent);
+            border-radius: 0 4px 4px 0;
+            opacity: 0;
+            transform: scaleY(0.6);
+            transition:
+                opacity var(--transition-smooth),
+                transform var(--transition-smooth);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+            transform: scaleY(1);
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--color-shadow-lg);
+            border-color: var(--color-border-hover);
+            background: #fafbfd;
+        }
+
+        .card:active {
+            transform: translateY(-1px);
+            box-shadow: var(--color-shadow-md);
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+
+        /* Emoji de bandera */
+        .card__flag {
+            font-size: 2rem;
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-accent-soft);
+            border-radius: var(--radius-sm);
+            line-height: 1;
+            transition:
+                background var(--transition-fast),
+                transform var(--transition-smooth);
+            user-select: none;
+        }
+
+        .card:hover .card__flag {
+            background: #dde3ff;
+            transform: scale(1.08);
+        }
+
+        /* Contenido de texto */
+        .card__content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .card__greeting {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+            transition: color var(--transition-fast);
+            word-break: break-word;
+        }
+
+        .card:hover .card__greeting {
+            color: var(--color-accent-hover);
+        }
+
+        .card__language {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--color-text-tertiary);
+            letter-spacing: -0.01em;
+            margin-top: 0.15rem;
+            transition: color var(--transition-fast);
+        }
+
+        .card:hover .card__language {
+            color: var(--color-text-secondary);
+        }
+
+        /* Variante para idiomas RTL (árabe) */
+        .card--rtl .card__greeting {
+            direction: rtl;
+            text-align: right;
+            font-size: 1.2rem;
+        }
+
+        /* ============ FOOTER ============ */
+        .footer {
+            text-align: center;
+            padding: 1.5rem 1rem 2rem;
+            color: var(--color-text-tertiary);
+            font-size: 0.8rem;
+            letter-spacing: 0.01em;
+        }
+
+        .footer__heart {
+            color: #e85d75;
+            display: inline-block;
+            animation: heartbeat 1.4s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            15% {
+                transform: scale(1.25);
+            }
+            30% {
+                transform: scale(1);
+            }
+            45% {
+                transform: scale(1.2);
+            }
+            60% {
+                transform: scale(1);
+            }
+        }
+
+        /* ============ MEDIA QUERIES - RESPONSIVE ============ */
+
+        /* Tablet pequeña: 2 columnas */
+        @media (min-width: 540px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.1rem;
+            }
+            .card {
+                padding: 1.3rem 1.2rem;
+            }
+            .header {
+                padding: 4rem 2rem 2.5rem;
+            }
+            .main-container {
+                padding: 2rem 1.5rem 3.5rem;
+            }
+        }
+
+        /* Tablet grande: 3 columnas */
+        @media (min-width: 820px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.2rem;
+            }
+            .card {
+                padding: 1.5rem 1.3rem;
+                gap: 1.1rem;
+            }
+            .card__flag {
+                font-size: 2.1rem;
+                width: 50px;
+                height: 50px;
+            }
+            .card__greeting {
+                font-size: 1.2rem;
+            }
+            .header {
+                padding: 4.5rem 2rem 3rem;
+            }
+            .header__icon {
+                font-size: 3.2rem;
+            }
+        }
+
+        /* Desktop: 4 columnas */
+        @media (min-width: 1100px) {
+            .grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1.3rem;
+            }
+            .card {
+                padding: 1.6rem 1.4rem;
+                gap: 1.2rem;
+            }
+            .card__flag {
+                font-size: 2.2rem;
+                width: 54px;
+                height: 54px;
+                border-radius: var(--radius-sm);
+            }
+            .card__greeting {
+                font-size: 1.25rem;
+            }
+            .header__title {
+                font-size: 3rem;
+            }
+            .main-container {
+                padding: 2.5rem 2rem 4rem;
+            }
+        }
+
+        /* Desktop grande: 5 columnas */
+        @media (min-width: 1400px) {
+            .grid {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 1.4rem;
+            }
+            .card {
+                padding: 1.5rem 1.3rem;
+            }
+            .card__flag {
+                font-size: 2rem;
+                width: 48px;
+                height: 48px;
+            }
+            .card__greeting {
+                font-size: 1.15rem;
+            }
+        }
+
+        /* ============ MODO OSCURO (prefers-color-scheme) ============ */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-bg: #111318;
+                --color-surface: #1a1d25;
+                --color-text-primary: #e8eaf0;
+                --color-text-secondary: #b0b5c4;
+                --color-text-tertiary: #7b8094;
+                --color-accent: #6b8aff;
+                --color-accent-soft: #1e2440;
+                --color-accent-hover: #8aa5ff;
+                --color-border: #262a35;
+                --color-border-hover: #3a3f52;
+                --color-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+                --color-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
+                --color-shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.25);
+                --color-shadow-xl: 0 20px 48px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.3);
+            }
+
+            body {
+                background-image:
+                    radial-gradient(ellipse at 15% 10%, rgba(107, 138, 255, 0.06) 0%, transparent 60%),
+                    radial-gradient(ellipse at 85% 90%, rgba(107, 138, 255, 0.04) 0%, transparent 60%),
+                    radial-gradient(ellipse at 50% 50%, rgba(140, 160, 230, 0.03) 0%, transparent 70%);
+            }
+
+            .card:hover {
+                background: #1f222c;
+            }
+
+            .card:hover .card__flag {
+                background: #252b45;
+            }
+
+            .card__flag {
+                background: #1e2440;
+            }
+
+            .header::after {
+                opacity: 0.9;
+            }
+        }
+
+        /* ============ REDUCIR MOVIMIENTO (accesibilidad) ============ */
+        @media (prefers-reduced-motion: reduce) {
+            .card {
+                animation: none;
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .header__icon {
+                animation: none;
+            }
+            .footer__heart {
+                animation: none;
+            }
+            .card:hover {
+                transform: none;
+            }
+            .card:hover .card__flag {
+                transform: none;
+            }
+        }
+
+        /* ============ FOCO VISIBLE (accesibilidad - teclado) ============ */
+        .card:focus-visible {
+            outline: 2.5px solid var(--color-accent);
+            outline-offset: 3px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--color-shadow-lg);
+        }
+    </style>
 </head>
-
 <body>
 
-  <div class="container">
+    <!-- ==================== HEADER ==================== -->
+    <header class="header">
+        <div class="header__icon" aria-hidden="true">🌍</div>
+        <h1 class="header__title">
+            <span class="accent">Hola Mundo</span> en 20 Idiomas
+        </h1>
+        <p class="header__subtitle">
+            La frase más universal de la programación, traducida a lenguas de todo el planeta
+        </p>
+    </header>
 
-    <h1 class="title">Hola Mundo</h1>
-    <p class="subtitle">
-      “Hello World” en 20 idiomas diferentes
-    </p>
+    <!-- ==================== GRID PRINCIPAL ==================== -->
+    <main class="main-container">
+        <ul class="grid" role="list">
 
-    <div class="grid">
+            <!-- 1. Español -->
+            <li class="card" tabindex="0" role="listitem" aria-label="Español: Hola mundo">
+                <span class="card__flag" aria-hidden="true">🇪🇸</span>
+                <div class="card__content">
+                    <p class="card__greeting">Hola mundo</p>
+                    <p class="card__language">Español</p>
+                </div>
+            </li>
 
-      <div class="card">
-        <div class="language">Español</div>
-        <div class="hello">Hola Mundo</div>
-      </div>
+            <!-- 2. Inglés -->
+            <li class="card" tabindex="0" role="listitem" aria-label="Inglés: Hello world">
+                <span class="card__flag" aria-hidden="true">🇬🇧</span>
+                <div class="card__content">
+                    <p class="card__greeting">Hello world</p>
+                    <p class="card__language">English</p>
+                </div>
+            </li>
 
-      <div class="card">
-        <div class="language">English</div>
-        <div class="hello">Hello World</div>
-      </div>
+            <!-- 3. Francés -->
+            <li class="card" tabindex="0" role="listitem" aria-label="Francés: Bonjour le monde">
+                <span class="card__flag" aria-hidden="true">🇫🇷</span>
+                <div class="card__content">
+                    <p class="card__greeting">Bonjour le monde</p>
+                    <p class="card__language">Français</p>
+                </div>
+            </li>
 
-      <div class="card">
-        <div class="language">Français</div>
-        <div class="hello">Bonjour le Monde</div>
-      </div>
+            <!-- 4. Alemán -->
+            <li class="card" tabindex="0" role="listitem" aria-label="Alemán: Hallo Welt">
+                <span class="card__flag" aria-hidden="true">🇩🇪</span>
+                <div class="card__content">
+                    <p class="card__greeting">Hallo Welt</p>
+                    <p class="card__language">Deutsch</p>
+                </div>
+            </li>
 
-      <div class="card">
-        <div class="language">Deutsch</div>
-        <div class="hello">Hallo Welt</div>
-      </div>
+            <!-- 5. Italiano -->
+            <li class="card" tabindex="0" role="listitem" aria-label="Italiano: Ciao mondo">
+                <span class="card__flag" aria-hidden="true">🇮🇹</span>
+                <div class="card__content">
+                    <p class="card__greeting">Ciao mondo</p>
+                    <p class="card__language">Italiano</p>
+                </div>
+            </li>
 
-      <div class="card">
-        <div class="language">Italiano</div>
-        <div class="hello">Ciao Mondo</div>
-      </div>
+            <!-- 6. Portugués -->
+            <li class="card" tabindex="0" role="listitem" aria-label="Portugués: Olá mundo">
+                <span class="card__flag" aria-hidden="true">🇧🇷</span>
+                <div class="card__content">
+                    <p class="card__greeting">Olá mundo</p>
+                    <p class="card__language">Português</p>
+                </div>
+            </li>
 
-      <div class="card">
-        <div class="language">Português</div>
-        <div class="hello">Olá Mundo</div>
-      </div>
+            <!-- 7. Chino mandarín -->
+            <li class="card" tabindex="0" role="listitem" aria-label="Chino mandarín: 你好世界">
+                <span class="card__flag" aria-hidden="true">🇨🇳</span>
+                <div class="card__content">
+                    <p class="card__greeting">你好，世界</p>
+                    <p class="card__language">中文 (Mandarín)</p>
+                </div>
+            </li>
 
-      <div class="card">
-        <div class="language">Русский</div>
-        <div class="hello">Привет, мир</div>
-      </div>
+            <!-- 8. Japonés -->
+            <li class="card" tabindex="0" role="listitem" aria-label="Japonés: こんにちは世界">
+                <span class="card__flag" aria-hidden="true">🇯🇵</span>
+                <div class="card__content">
+                    <p class="card__greeting">こんにちは世界</p>
+                    <p class="card__language">日本語</p>
+                </div>
+            </li>
 
-      <div class="card">
-        <div class="language">中文</div>
-        <div class="hello">你好，世界</div>
-      </div>
+            <!-- 9. Coreano -->
+            <li class="card" tabindex="0" role="listitem" aria-label="Coreano: 안녕하세요 세계">
+                <span class="card__flag" aria-hidden="true">🇰🇷</span>
+                <div class="card__content">
+                    <p class="card__greeting">안녕하세요 세계</p>
+                    <p class="card__language">한국어</p>
+                </div>
+            </li>
 
-      <div class="card">
-        <div class="language">日本語</div>
-        <div class="hello">こんにちは世界</div>
-      </div>
+            <!-- 10. Ruso -->
+            <li class="card" tabindex="0" role="listitem" aria-label="Ruso: Привет мир">
+                <span class="card__flag" aria-hidden="true">🇷🇺</span>
+                <div class="card__content">
+                    <p class="card__greeting">Привет, мир</p>
+                    <p class="card__language">Русский</p>
+                </div>
+            </li>
 
-      <div class="card">
-        <div class="language">한국어</div>
-        <div class="hello">안녕하세요 세계</div>
-      </div>
+            <!-- 11. Árabe -->
+            <li class="card card--rtl" tabindex="0" role="listitem" aria-label="Árabe: مرحباً بالعالم">
+                <span class="card__flag" aria-hidden="true">🇸🇦</span>
+                <div class="card__content">
+                    <p class="card__greeting">مرحباً بالعالم</p>
+                    <p class="card__language">العربية</p>
+                </div>
+            </li>
 
-      <div class="card">
-        <div class="language">العربية</div>
-        <div class="hello">مرحبا بالعالم</div>
-      </div>
+            <!-- 12. Hindi -->
+            <li class="card" tabindex="0" role="listitem" aria-label="Hindi: नमस्ते दुनिया">
+                <span class="card__flag" aria-hidden="true">🇮🇳</span>
+                <div class="card__content">
+                    <p class="card__greeting">नमस्ते दुनिया</p>
+                    <p class="card__language">हिन्दी</p>
+                </div>
+            </li>
 
-      <div class="card">
-        <div class="language">हिन्दी</div>
-        <div class="hello">नमस्ते दुनिया</div>
-      </div>
+            <!-- 13. Suajili -->
+            <li class="card" tabindex="0" role="listitem" aria-label="Suajili: Habari dunia">
+                <span class="card__flag" aria-hidden="true">🇹🇿</span>
+                <div class="card__content">
+                    <p class="card__greeting">Habari dunia</p>
+                    <p class="card__language">Kiswahili</p>
+                </div>
+            </li>
 
-      <div class="card">
-        <div class="language">Türkçe</div>
-        <div class="hello">Merhaba Dünya</div>
-      </div>
+            <!-- 14. Turco -->
+            <li class="card" tabindex="0" role="listitem" aria-label="Turco: Merhaba dünya">
+                <span class="card__flag" aria-hidden="true">🇹🇷</span>
+                <div class="card__content">
+                    <p class="card__greeting">Merhaba dünya</p>
+                    <p class="card__language">Türkçe</p>
+                </div>
+            </li>
 
-      <div class="card">
-        <div class="language">Nederlands</div>
-        <div class="hello">Hallo Wereld</div>
-      </div>
+            <!-- 15. Neerlandés -->
+            <li class="card" tabindex="0" role="listitem" aria-label="Neerlandés: Hallo wereld">
+                <span class="card__flag" aria-hidden="true">🇳🇱</span>
+                <div class="card__content">
+                    <p class="card__greeting">Hallo wereld</p>
+                    <p class="card__language">Nederlands</p>
+                </div>
+            </li>
 
-      <div class="card">
-        <div class="language">Polski</div>
-        <div class="hello">Witaj Świecie</div>
-      </div>
+            <!-- 16. Sueco -->
+            <li class="card" tabindex="0" role="listitem" aria-label="Sueco: Hej världen">
+                <span class="card__flag" aria-hidden="true">🇸🇪</span>
+                <div class="card__content">
+                    <p class="card__greeting">Hej världen</p>
+                    <p class="card__language">Svenska</p>
+                </div>
+            </li>
 
-      <div class="card">
-        <div class="language">Svenska</div>
-        <div class="hello">Hej Världen</div>
-      </div>
+            <!-- 17. Polaco -->
+            <li class="card" tabindex="0" role="listitem" aria-label="Polaco: Witaj świecie">
+                <span class="card__flag" aria-hidden="true">🇵🇱</span>
+                <div class="card__content">
+                    <p class="card__greeting">Witaj świecie</p>
+                    <p class="card__language">Polski</p>
+                </div>
+            </li>
 
-      <div class="card">
-        <div class="language">Ελληνικά</div>
-        <div class="hello">Γειά σου Κόσμε</div>
-      </div>
+            <!-- 18. Griego -->
+            <li class="card" tabindex="0" role="listitem" aria-label="Griego: Γεια σου κόσμε">
+                <span class="card__flag" aria-hidden="true">🇬🇷</span>
+                <div class="card__content">
+                    <p class="card__greeting">Γεια σου κόσμε</p>
+                    <p class="card__language">Ελληνικά</p>
+                </div>
+            </li>
 
-      <div class="card">
-        <div class="language">ไทย</div>
-        <div class="hello">สวัสดีชาวโลก</div>
-      </div>
+            <!-- 19. Tailandés -->
+            <li class="card" tabindex="0" role="listitem" aria-label="Tailandés: สวัสดีโลก">
+                <span class="card__flag" aria-hidden="true">🇹🇭</span>
+                <div class="card__content">
+                    <p class="card__greeting">สวัสดีโลก</p>
+                    <p class="card__language">ภาษาไทย</p>
+                </div>
+            </li>
 
-      <div class="card">
-        <div class="language">עברית</div>
-        <div class="hello">שלום עולם</div>
-      </div>
+            <!-- 20. Vietnamita -->
+            <li class="card" tabindex="0" role="listitem" aria-label="Vietnamita: Chào thế giới">
+                <span class="card__flag" aria-hidden="true">🇻🇳</span>
+                <div class="card__content">
+                    <p class="card__greeting">Chào thế giới</p>
+                    <p class="card__language">Tiếng Việt</p>
+                </div>
+            </li>
 
-      <div class="card">
-        <div class="language">Українська</div>
-        <div class="hello">Привіт Світ</div>
-      </div>
+        </ul>
+    </main>
 
-    </div>
-
-    <footer>
-      Página HTML Responsive • Diseño Profesional • 2026
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <p>
+            Hecho con <span class="footer__heart" aria-label="amor">❤️</span> para celebrar la diversidad lingüística
+            &bull; <span id="current-year"></span>
+        </p>
     </footer>
 
-  </div>
+    <!-- Script para el año dinámico en el footer -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 
 </body>
 </html>
