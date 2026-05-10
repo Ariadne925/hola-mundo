@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hola Mundo Multilenguaje</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .container{
+      width: 100%;
+      max-width: 1200px;
+      text-align: center;
+    }
+
+    .title{
+      margin-bottom: 15px;
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .subtitle{
+      color: #cbd5e1;
+      margin-bottom: 40px;
+      font-size: 1rem;
+    }
+
+    .grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card{
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      padding: 25px 20px;
+      backdrop-filter: blur(10px);
+      transition: 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .card:hover{
+      transform: translateY(-6px);
+      background: rgba(255,255,255,0.12);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    }
+
+    .language{
+      font-size: 0.95rem;
+      color: #94a3b8;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hello{
+      font-size: 1.4rem;
+      font-weight: 600;
+      word-break: break-word;
+    }
+
+    footer{
+      margin-top: 40px;
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 480px){
+      .card{
+        padding: 20px 15px;
+      }
+
+      .hello{
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1 class="title">Hola Mundo</h1>
+    <p class="subtitle">
+      “Hello World” en 20 idiomas diferentes
+    </p>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="language">Español</div>
+        <div class="hello">Hola Mundo</div>
+      </div>
+
+      <div class="card">
+        <div class="language">English</div>
+        <div class="hello">Hello World</div>
+      </div>
+
+      <div class="card">
+        <div class="language">Français</div>
+        <div class="hello">Bonjour le Monde</div>
+      </div>
+
+      <div class="card">
+        <div class="language">Deutsch</div>
+        <div class="hello">Hallo Welt</div>
+      </div>
+
+      <div class="card">
+        <div class="language">Italiano</div>
+        <div class="hello">Ciao Mondo</div>
+      </div>
+
+      <div class="card">
+        <div class="language">Português</div>
+        <div class="hello">Olá Mundo</div>
+      </div>
+
+      <div class="card">
+        <div class="language">Русский</div>
+        <div class="hello">Привет, мир</div>
+      </div>
+
+      <div class="card">
+        <div class="language">中文</div>
+        <div class="hello">你好，世界</div>
+      </div>
+
+      <div class="card">
+        <div class="language">日本語</div>
+        <div class="hello">こんにちは世界</div>
+      </div>
+
+      <div class="card">
+        <div class="language">한국어</div>
+        <div class="hello">안녕하세요 세계</div>
+      </div>
+
+      <div class="card">
+        <div class="language">العربية</div>
+        <div class="hello">مرحبا بالعالم</div>
+      </div>
+
+      <div class="card">
+        <div class="language">हिन्दी</div>
+        <div class="hello">नमस्ते दुनिया</div>
+      </div>
+
+      <div class="card">
+        <div class="language">Türkçe</div>
+        <div class="hello">Merhaba Dünya</div>
+      </div>
+
+      <div class="card">
+        <div class="language">Nederlands</div>
+        <div class="hello">Hallo Wereld</div>
+      </div>
+
+      <div class="card">
+        <div class="language">Polski</div>
+        <div class="hello">Witaj Świecie</div>
+      </div>
+
+      <div class="card">
+        <div class="language">Svenska</div>
+        <div class="hello">Hej Världen</div>
+      </div>
+
+      <div class="card">
+        <div class="language">Ελληνικά</div>
+        <div class="hello">Γειά σου Κόσμε</div>
+      </div>
+
+      <div class="card">
+        <div class="language">ไทย</div>
+        <div class="hello">สวัสดีชาวโลก</div>
+      </div>
+
+      <div class="card">
+        <div class="language">עברית</div>
+        <div class="hello">שלום עולם</div>
+      </div>
+
+      <div class="card">
+        <div class="language">Українська</div>
+        <div class="hello">Привіт Світ</div>
+      </div>
+
+    </div>
+
+    <footer>
+      Página HTML Responsive • Diseño Profesional • 2026
+    </footer>
+
+  </div>
+
+</body>
+</html>
